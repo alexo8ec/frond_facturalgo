@@ -42,7 +42,7 @@
                         <a class="btn btn-sm btn-white btn-block" href="register.html">Crear cuenta</a>
                     </form>
                     <p class="m-t">
-                        <small>{{$info->name_info}} v{{$info->version_info}}.{{$info->major_info}} creado con <i class="fa fa-heart fa-1x" style="color: red;"></i> by AmsGroup &copy; {{date('Y')}}</small>
+                        <small>{{$info->name_info}} v{{$info->version_info}}.{{$info->major_info}} creado con <i class="fa fa-heart fa-1x" style="color: red;"></i> by {{$info->author_info}} &copy; {{date('Y')}}</small>
                     </p>
                 </div>
             </div>
@@ -50,10 +50,10 @@
         <hr />
         <div class="row">
             <div class="col-md-6">
-                Copyright Example Company
+                Copyright {{$info->author_info}}
             </div>
             <div class="col-md-6 text-right">
-                <small>© 2014-2015</small>
+                <small>© 2004-{{date('Y')}}</small>
             </div>
         </div>
     </div>
