@@ -12,16 +12,9 @@ class Users extends Model
 
     public static function getUsers()
     {
-        $baseUrl = env('API_ENDPOINT_PRODUCCION') . "v1/users/1";
-        $response = Http::get($baseUrl);
-
-
-
-
+        $baseUrl = env('API_ENDPOINT_PRODUCCION') . "v1/users/" . session('idUsuario');
+        $response = Http::withToken(session('token'))->get($baseUrl);
         $quizzes = json_decode($response->body());
-        echo '<pre>';
-        print_r($quizzes);
-        exit;
         return $quizzes;
     }
     public static function saveRegister($r)

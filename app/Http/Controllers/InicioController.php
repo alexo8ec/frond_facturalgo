@@ -13,6 +13,8 @@ class InicioController extends Controller
     private $controlador = 'inicio';
     public function index(Request $r)
     {
+        if (session('idUsuario') != '')
+            return redirect('admin');
         $info = Info::getInfo();
         $data['info'] = $info->data;
         $data['title'] = 'Bienvenid@ | ' . $info->data->name_info . ' V' . $info->data->version_info;
