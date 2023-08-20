@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Http;
+use GuzzleHttp\Client;
 
 class Users extends Model
 {
@@ -11,9 +12,12 @@ class Users extends Model
 
     public static function getUsers()
     {
-        $baseUrl = env('API_ENDPOINT_PRODUCCION') . "v1/users/" . session('idUsuario');
+        $baseUrl = env('API_ENDPOINT_PRODUCCION') . "v1/users/1";
+        $response = Http::get($baseUrl);
 
-        $response = Http::withToken(session('token'))->get($baseUrl);
+
+
+
         $quizzes = json_decode($response->body());
         echo '<pre>';
         print_r($quizzes);
