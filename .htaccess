@@ -1,5 +1,5 @@
 <FilesMatch "\.(php|phtml)$">
-    #SetHandler application/x-httpd-alt-php81___lsphp
+    SetHandler application/x-httpd-alt-php81___lsphp
 </FilesMatch>
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
