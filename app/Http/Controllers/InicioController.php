@@ -15,15 +15,24 @@ class InicioController extends Controller
     {
         $info = Info::getInfo();
         $data['info'] = $info->data;
+        $data['title'] = 'Bienvenid@ | ' . $info->data->name_info . ' V' . $info->data->version_info;
         if ($r->submodulo == '') {
-            $data['title'] = 'Bienvenid@ | ' . $info->data->name_info . ' V' . $info->data->version_info;
             return view('login/view_login', $data);
         } elseif ($r->submodulo == 'login') {
             $mensaje = Users::getLogin($r);
             if (isset($mensaje->message) && $mensaje->message != 'success|Ingreso correcto') {
                 return redirect('/')->with(['message' => $mensaje->message]);
             } else {
+                session(['token' => $mensaje->data->token]);
+                echo session('token');
                 return redirect('admin');
+            }
+        } elseif ($r->submodulo == 'register') {
+            return view('login/view_register', $data);
+        } elseif ($r->submodulo == 'saveRegister') {
+            $mensaje = Users::saveRegister($r);
+            if (isset($mensaje->message) && $mensaje->message != 'success|User create successfully') {
+                return redirect('/')->with(['message' => $mensaje->message]);
             }
         }
     }
