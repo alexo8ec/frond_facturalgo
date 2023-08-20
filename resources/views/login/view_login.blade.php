@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,11 +10,12 @@
     <link href="{{asset('public/css/animate.css')}}" rel="stylesheet">
     <link href="{{asset('public/css/style.css')}}" rel="stylesheet">
 </head>
+
 <body class="gray-bg">
     <div class="loginColumns animated fadeInDown">
         <div class="row">
             <div class="col-md-6">
-                <h2 class="font-bold">Welcome to IN+</h2>
+                <h2 class="font-bold">{{$info->data->name_info . ' V' . $info->data->version_info.$info->data->major_info}}</h2>
                 <p>
                     Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
                 </p>
