@@ -16,7 +16,7 @@ class InicioController extends Controller
         $info = Info::getInfo();
         $data['info'] = $info->data;
         if ($r->submodulo == '') {
-            $data['title'] = $info->data->name_info . ' V' . $info->data->version_info . ' | Bienvenido';
+            $data['title'] = 'Bienvenid@ | ' . $info->data->name_info . ' V' . $info->data->version_info;
             return view('login/view_login', $data);
         }
     }

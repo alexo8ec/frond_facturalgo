@@ -27,24 +27,22 @@
                 <div class="ibox-content">
                     <form class="m-t" role="form" action="index.html">
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Username" required="">
+                            <input type="text" id="user" name="user" class="form-control" placeholder="Usuario" required="">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Password" required="">
+                            <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" required="">
                         </div>
-                        <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
-
+                        <button type="submit" class="btn btn-primary block full-width m-b">Ingresar</button>
                         <a href="#">
-                            <small>Forgot password?</small>
+                            <small>¿Olvido su contraseña?</small>
                         </a>
-
                         <p class="text-muted text-center">
-                            <small>Do not have an account?</small>
+                            <small>No tiene una cuenta?</small>
                         </p>
-                        <a class="btn btn-sm btn-white btn-block" href="register.html">Create an account</a>
+                        <a class="btn btn-sm btn-white btn-block" href="register.html">Crear cuenta</a>
                     </form>
                     <p class="m-t">
-                        <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small>
+                        <small>{{$info->name_info}} v{{$info->version_info}}.{{$info->major_info}} creado con <i class="fa fa-heart fa-1x" style="color: red;"></i> by AmsGroup &copy; {{date('Y')}}</small>
                     </p>
                 </div>
             </div>
