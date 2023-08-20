@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
-    <base href="{{ url('/') }}" />
+    <base href="{{url('./')}}" />
     <link href="{{ asset('public/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('public/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
     <!-- Morris -->
@@ -41,7 +41,7 @@
                                 <li>
                                     <div class="dropdown-messages-box">
                                         <a class="dropdown-item float-left" href="profile.html">
-                                            <img alt="image" class="rounded-circle" src="img/a7.jpg">
+                                            <img alt="image" class="rounded-circle" src="{{asset('public/img/a7.jpg')}}">
                                         </a>
                                         <div>
                                             <small class="float-right">46h ago</small>
@@ -54,7 +54,7 @@
                                 <li>
                                     <div class="dropdown-messages-box">
                                         <a class="dropdown-item float-left" href="profile.html">
-                                            <img alt="image" class="rounded-circle" src="img/a4.jpg">
+                                            <img alt="image" class="rounded-circle" src="{{asset('public/img/a4.jpg')}}">
                                         </a>
                                         <div>
                                             <small class="float-right text-navy">5h ago</small>
@@ -67,7 +67,7 @@
                                 <li>
                                     <div class="dropdown-messages-box">
                                         <a class="dropdown-item float-left" href="profile.html">
-                                            <img alt="image" class="rounded-circle" src="img/profile.jpg">
+                                            <img alt="image" class="rounded-circle" src="{{asset('public/img/profile.jpg')}}">
                                         </a>
                                         <div>
                                             <small class="float-right">23h ago</small>
@@ -609,7 +609,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="float-left text-center">
-                                        <img alt="image" class="rounded-circle message-avatar" src="img/a1.jpg">
+                                        <img alt="image" class="rounded-circle message-avatar" src="{{asset('public/img/a1.jpg')}}">
 
                                         <div class="m-t-xs">
                                             <i class="fa fa-star text-warning"></i>
@@ -627,7 +627,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="float-left text-center">
-                                        <img alt="image" class="rounded-circle message-avatar" src="img/a2.jpg">
+                                        <img alt="image" class="rounded-circle message-avatar" src="{{asset('public/img/a2.jpg')}}">
                                     </div>
                                     <div class="media-body">
                                         The point of using Lorem Ipsum is that it has a more-or-less normal.
@@ -639,7 +639,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="float-left text-center">
-                                        <img alt="image" class="rounded-circle message-avatar" src="img/a3.jpg">
+                                        <img alt="image" class="rounded-circle message-avatar" src="{{asset('public/img/a3.jpg')}}">
 
                                         <div class="m-t-xs">
                                             <i class="fa fa-star text-warning"></i>
@@ -657,7 +657,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="float-left text-center">
-                                        <img alt="image" class="rounded-circle message-avatar" src="img/a4.jpg">
+                                        <img alt="image" class="rounded-circle message-avatar" src="{{asset('public/img/a4.jpg')}}">
                                     </div>
 
                                     <div class="media-body">
@@ -670,7 +670,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="float-left text-center">
-                                        <img alt="image" class="rounded-circle message-avatar" src="img/a8.jpg">
+                                        <img alt="image" class="rounded-circle message-avatar" src="{{asset('public/img/a8.jpg')}}">
                                     </div>
                                     <div class="media-body">
 
@@ -683,7 +683,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="float-left text-center">
-                                        <img alt="image" class="rounded-circle message-avatar" src="img/a7.jpg">
+                                        <img alt="image" class="rounded-circle message-avatar" src="{{asset('public/img/a7.jpg')}}">
                                     </div>
                                     <div class="media-body">
                                         Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
@@ -695,7 +695,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="float-left text-center">
-                                        <img alt="image" class="rounded-circle message-avatar" src="img/a3.jpg">
+                                        <img alt="image" class="rounded-circle message-avatar" src="{{asset('public/img/a3.jpg')}}">
 
                                         <div class="m-t-xs">
                                             <i class="fa fa-star text-warning"></i>
@@ -713,7 +713,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="float-left text-center">
-                                        <img alt="image" class="rounded-circle message-avatar" src="img/a4.jpg">
+                                        <img alt="image" class="rounded-circle message-avatar" src="{{asset('public/img/a4.jpg')}}">
                                     </div>
                                     <div class="media-body">
                                         Uncover many web sites still in their infancy. Various versions have.
