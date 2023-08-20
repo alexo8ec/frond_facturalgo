@@ -20,8 +20,8 @@ class InicioController extends Controller
             return view('login/view_login', $data);
         } elseif ($r->submodulo == 'login') {
             $mensaje = Users::getLogin($r);
-            if ($mensaje != '') {
-                return redirect('/')->with(['message' => $mensaje]);
+            if (isset($mensaje->message) && $mensaje->message != 'success|Ingreso correcto') {
+                return redirect('/')->with(['message' => $mensaje->message]);
             } else {
                 return redirect('admin');
             }

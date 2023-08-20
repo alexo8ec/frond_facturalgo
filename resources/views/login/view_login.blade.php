@@ -42,6 +42,14 @@
                         </p>
                         <a class="btn btn-sm btn-white btn-block" href="register.html">Crear cuenta</a>
                     </form>
+                    <?php
+                    if (session('message')) {
+                        $msn = explode('|', session('message'));
+                        echo '<div class="alert alert-' . $msn[0] . ' text-center">
+                            ' . $msn[1] . '
+                        </div>';
+                    }
+                    ?>
                     <p class="m-t">
                         <small>{{$info->name_info}} v{{$info->version_info}}.{{$info->major_info}} creado con <i class="fa fa-heart fa-1x" style="color: red;"></i> by {{$info->author_info}} &copy; {{date('Y')}}</small>
                     </p>

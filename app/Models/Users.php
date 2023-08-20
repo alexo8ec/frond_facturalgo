@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Http;
 
 class Users extends Model
 {
@@ -10,6 +11,13 @@ class Users extends Model
 
     public static function getLogin($r)
     {
-        dd($r->input());
+        $arrayData = [
+            'user' => $r->user,
+            'password' => $r->password,
+        ];
+        $baseUrl = env('API_ENDPOINT_PRODUCCION') . "v1/login";
+        $response = Http::post($baseUrl, $arrayData);
+        $quizzes = json_decode($response->body());
+        return $quizzes;
     }
 }
