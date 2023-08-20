@@ -24,21 +24,23 @@
                 <a href="{{url('/')}}"><i class="fa fa-home"></i> <span class="nav-label">Inicio</span></a>
             </li>
             <?php
-            if (config('data.moduls') != '' && count(config('data.moduls')) > 0) {
-                $menu = '';
-                foreach (config('data.moduls') as $modul) {
-                    $menu .= '<li>
+            if (session('idEmpresa') != '') {
+                if (config('data.moduls') != '' && count(config('data.moduls')) > 0) {
+                    $menu = '';
+                    foreach (config('data.moduls') as $modul) {
+                        $menu .= '<li>
                         <a href="javascript:;"><i class="' . $modul->modul->icon_modul . '"></i> <span class="nav-label">' . $modul->modul->name_modul . '</span><span class="fa arrow"></span></a>';
-                    if (count($modul->modul->submoduls) > 0) {
-                        $menu .= '<ul class="nav nav-second-level collapse">';
-                        foreach ($modul->modul->submoduls as $sub) {
-                            $menu .= '<li><a href="graph_flot.html">' . $sub->name_submodul . '</a></li>';
+                        if (count($modul->modul->submoduls) > 0) {
+                            $menu .= '<ul class="nav nav-second-level collapse">';
+                            foreach ($modul->modul->submoduls as $sub) {
+                                $menu .= '<li><a href="graph_flot.html">' . $sub->name_submodul . '</a></li>';
+                            }
+                            $menu .= '</ul>';
                         }
-                        $menu .= '</ul>';
+                        $menu .= '</li>';
                     }
-                    $menu .= '</li>';
+                    echo $menu;
                 }
-                echo $menu;
             }
             ?>
         </ul>

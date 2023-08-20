@@ -31,7 +31,6 @@ class InicioController extends Controller
         } elseif ($r->submodulo == 'register') {
             return view('login/view_register', $data);
         } elseif ($r->submodulo == 'saveRegister') {
-
             $mensaje = Users::saveRegister($r);
             return redirect('/inicio/register')->with(['message' => $mensaje->message, 'data' => $r->input()]);
         }
