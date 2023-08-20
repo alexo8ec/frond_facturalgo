@@ -26,6 +26,7 @@
             <div class="col-md-6">
                 <div class="ibox-content">
                     <form class="m-t" role="form" action="{{url('/inicio/login')}}" method="post">
+                        @csrf
                         <div class="form-group">
                             <input type="text" id="user" name="user" class="form-control" placeholder="Usuario" required="">
                         </div>
