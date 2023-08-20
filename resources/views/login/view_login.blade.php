@@ -19,6 +19,9 @@
                 <p>
                     {{$info->description_info}}
                 </p>
+                <p>
+                    <a href="javascript:;"><i class="fa fa-info-circle"></i> Información</a>
+                </p>
             </div>
             <div class="col-md-6">
                 <div class="ibox-content">
