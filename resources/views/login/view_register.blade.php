@@ -22,16 +22,16 @@
             <form class="m-t" role="form" action="{{url('/inicio/saveRegister')}}" method="post">
                 @csrf
                 <div class="form-group">
-                    <input type="text" id="user" name="user" class="form-control" placeholder="Usuario" required="">
+                    <input type="text" id="user" name="user" class="form-control" placeholder="Usuario" value="<?= session('data') != '' ? session('data')['user'] : ''; ?>" required="">
                 </div>
                 <div class="form-group">
-                    <input type="text" id="name" name="name" class="form-control" placeholder="Nombre" required="">
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Nombre" value="<?= session('data') != '' ? session('data')['name'] : ''; ?>" required="">
                 </div>
                 <div class="form-group">
-                    <input type="text" id="last_name" name="last_name" class="form-control" placeholder="Apellido" required="">
+                    <input type="text" id="last_name" name="last_name" class="form-control" placeholder="Apellido" value="<?= session('data') != '' ? session('data')['last_name'] : ''; ?>" required="">
                 </div>
                 <div class="form-group">
-                    <input type="email" id="email" name="email" class="form-control" placeholder="Email" required="">
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Email" value="<?= session('data') != '' ? session('data')['email'] : ''; ?>" required="">
                 </div>
                 <div class="form-group">
                     <div class="checkbox i-checks"><label> <input type="checkbox"><i></i> Terminos y políticas </label></div>

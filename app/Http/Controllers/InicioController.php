@@ -23,17 +23,15 @@ class InicioController extends Controller
             if (isset($mensaje->message) && $mensaje->message != 'success|Ingreso correcto') {
                 return redirect('/')->with(['message' => $mensaje->message]);
             } else {
-                session(['token' => $mensaje->data->token]);
-                echo session('token');
+                session(['token' => $mensaje->data->token, 'idUsuario' => $mensaje->data->user->id]);
                 return redirect('admin');
             }
         } elseif ($r->submodulo == 'register') {
             return view('login/view_register', $data);
         } elseif ($r->submodulo == 'saveRegister') {
+
             $mensaje = Users::saveRegister($r);
-            if (isset($mensaje->message) && $mensaje->message != 'success|User create successfully') {
-                return redirect('/')->with(['message' => $mensaje->message]);
-            }
+            return redirect('/inicio/register')->with(['message' => $mensaje->message, 'data' => $r->input()]);
         }
     }
 }

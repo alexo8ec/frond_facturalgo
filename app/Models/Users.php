@@ -9,13 +9,24 @@ class Users extends Model
 {
     private $model = 'Users';
 
+    public static function getUsers()
+    {
+        $baseUrl = env('API_ENDPOINT_PRODUCCION') . "v1/users/" . session('idUsuario');
+
+        $response = Http::withToken(session('token'))->get($baseUrl);
+        $quizzes = json_decode($response->body());
+        echo '<pre>';
+        print_r($quizzes);
+        exit;
+        return $quizzes;
+    }
     public static function saveRegister($r)
     {
         $arrayData = [
             'user' => $r->user,
-            'name_user' => $r->name,
-            'last_name_user' => $r->last_name,
-            'email_user' => $r->email
+            'name' => $r->name,
+            'last_name' => $r->last_name,
+            'email' => $r->email
         ];
         $baseUrl = env('API_ENDPOINT_PRODUCCION') . "v1/users";
         $response = Http::post($baseUrl, $arrayData);
