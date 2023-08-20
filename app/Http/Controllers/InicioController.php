@@ -18,6 +18,13 @@ class InicioController extends Controller
         if ($r->submodulo == '') {
             $data['title'] = 'Bienvenid@ | ' . $info->data->name_info . ' V' . $info->data->version_info;
             return view('login/view_login', $data);
+        } elseif ($r->submodulo == 'login') {
+            $mensaje = Users::getLogin($r);
+            if ($mensaje != '') {
+                return redirect('/')->with(['message' => $mensaje]);
+            } else {
+                return redirect('admin');
+            }
         }
     }
 }
