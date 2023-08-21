@@ -30,7 +30,7 @@
                 @if (isset($module->module->sub_modules) && count($module->module->sub_modules) > 0)
                 <ul class="nav nav-second-level collapse">
                     @foreach ($module->module->sub_modules as $sub)
-                    <li><a href="{{url('/'+$sub->link_submodule)}}">{{$sub->name_submodule}}</a></li>
+                    <li><a href="{{url('/'.$module->module->link_module)}}">{{$sub->name_submodule}}</a></li>
                     @endforeach
                 </ul>
                 @endif
