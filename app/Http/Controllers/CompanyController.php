@@ -19,7 +19,7 @@ class CompanyController extends Controller
         $opcions = Utils::getTodo($this->controlador);
         $data['info'] = $opcions->data->info;
         $data['user'] = $opcions->data->user;
-        $data['moduls'] = $opcions->data->moduls;
+        $data['modules'] = $opcions->data->modules;
         $data['companies'] = $opcions->data->companies;
         $data['submodulo'] = $r->submodulo;
         $data['controlador'] = $this->controlador;

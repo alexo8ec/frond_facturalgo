@@ -10,6 +10,14 @@ class Users extends Model
 {
     private $model = 'Users';
 
+    public static function logout()
+    {
+        $baseUrl = env('API_ENDPOINT_PRODUCCION') . "v1/sistema/logout";
+        $response = Http::withToken(session('token'))->get($baseUrl);
+        $quizzes = json_decode($response->body());
+        session(['token' => '', 'idUsuario' => '', 'idEmpresa' => '']);
+        return redirect('/');
+    }
     public static function getUsers()
     {
         $baseUrl = env('API_ENDPOINT_PRODUCCION') . "v1/users/" . session('idUsuario');

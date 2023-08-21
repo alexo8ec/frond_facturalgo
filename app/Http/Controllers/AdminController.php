@@ -17,8 +17,7 @@ class AdminController extends Controller
             return redirect('/');
         }
         if ($r->submodulo == 'logout') {
-            session(['token' => '', 'idUsuario' => '', 'idEmpresa' => '']);
-            return redirect('/');
+            Users::logout();
         }
         $opcions = Utils::getTodo($this->controlador);
         $data['info'] = $opcions->data->info;
