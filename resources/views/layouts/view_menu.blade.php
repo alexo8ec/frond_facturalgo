@@ -20,29 +20,24 @@
                     FA
                 </div>
             </li>
-            <li class="active">
+            @if (session('idEmpresa') != '')
+            <li class="{{config('data.submodulo')!=''?active:''}}">
                 <a href="{{url('/')}}"><i class="fa fa-home"></i> <span class="nav-label">Inicio</span></a>
             </li>
-            <?php
-            if (session('idEmpresa') != '') {
-                if (config('data.moduls') != '' && count(config('data.moduls')) > 0) {
-                    $menu = '';
-                    foreach (config('data.moduls') as $modul) {
-                        $menu .= '<li>
-                        <a href="javascript:;"><i class="' . $modul->modul->icon_modul . '"></i> <span class="nav-label">' . $modul->modul->name_modul . '</span><span class="fa arrow"></span></a>';
-                        if (count($modul->modul->submoduls) > 0) {
-                            $menu .= '<ul class="nav nav-second-level collapse">';
-                            foreach ($modul->modul->submoduls as $sub) {
-                                $menu .= '<li><a href="graph_flot.html">' . $sub->name_submodul . '</a></li>';
-                            }
-                            $menu .= '</ul>';
-                        }
-                        $menu .= '</li>';
-                    }
-                    echo $menu;
-                }
-            }
-            ?>
+            @if (config('data.modules') != '' && count(config('data.modules')) > 0)
+            @foreach (config('data.modules') as $module)
+            <li><a href="javascript:;"><i class="{{$module->module->icon_module}}"></i> <span class="nav-label">{{$module->module->name_module}}</span><span class="fa arrow"></span></a>
+                @if (isset($module->module->submodules) && count($module->module->submodules) > 0)
+                <ul class="nav nav-second-level collapse">
+                    @foreach ($module->module->submodules as $sub)
+                    <li><a href="graph_flot.html">{{$sub->name_submodule}}</a></li>
+                    @endforeach
+                </ul>
+                @endif
+            </li>
+            @endforeach
+            @endif
+            @endif
         </ul>
     </div>
 </nav>

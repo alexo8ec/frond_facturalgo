@@ -29,3 +29,5 @@
     <script src="{{asset('public/js/demo/sparkline-demo.js')}}"></script>
     <!-- ChartJS-->
     <script src="{{asset('public/js/plugins/chartJs/Chart.min.js')}}"></script>
+
+    <script src="{{ url('/') }}/public/js/sistema/function_{{config('data.controlador')}}.js"></script>

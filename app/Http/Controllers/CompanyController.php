@@ -8,32 +8,25 @@ use App\Models\Users;
 use App\Models\Utils;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class CompanyController extends Controller
 {
-    private $controlador = 'admin';
+    private $controlador = 'company';
     public function index(Request $r)
     {
         if (session('idUsuario') == '') {
             return redirect('/');
         }
-        if ($r->submodulo == 'logout') {
-            session(['token' => '', 'idUsuario' => '', 'idEmpresa' => '']);
-            return redirect('/');
-        }
         $opcions = Utils::getTodo($this->controlador);
         $data['info'] = $opcions->data->info;
         $data['user'] = $opcions->data->user;
-        $data['modules'] = $opcions->data->modules;
+        $data['moduls'] = $opcions->data->moduls;
         $data['companies'] = $opcions->data->companies;
         $data['submodulo'] = $r->submodulo;
         $data['controlador'] = $this->controlador;
         $data['title'] = ucwords(strtolower($this->controlador)) . ' | ' . $data['info']->name_info . ' V' . $data['info']->version_info;
-        if ($r->submodulo == '') {
-            if (session('idEmpresa') != '') {
-                $data['content'] = view($this->controlador . '.view_admin');
-            } else {
-                $data['content'] = view($this->controlador . '.view_seleccionar_empresa');
-            }
+        if ($r->submodulo == 'companyselector') {
+            session(['idEmpresa' => $r->id]);
+            return redirect('/admin');
         }
         config(['data' => $data]);
         return view('layouts.view_child');
