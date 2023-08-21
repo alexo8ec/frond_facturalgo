@@ -27,10 +27,10 @@
             @if (config('data.modules') != '' && count(config('data.modules')) > 0)
             @foreach (config('data.modules') as $module)
             <li><a href="javascript:;"><i class="{{$module->module->icon_module}}"></i> <span class="nav-label">{{$module->module->name_module}}</span><span class="fa arrow"></span></a>
-                @if (isset($module->module->submodules) && count($module->module->submodules) > 0)
+                @if (isset($module->module->sub_modules) && count($module->module->sub_modules) > 0)
                 <ul class="nav nav-second-level collapse">
-                    @foreach ($module->module->submodules as $sub)
-                    <li><a href="graph_flot.html">{{$sub->name_submodule}}</a></li>
+                    @foreach ($module->module->sub_modules as $sub)
+                    <li><a href="{{url('/'+$sub->link_submodule)}}">{{$sub->name_submodule}}</a></li>
                     @endforeach
                 </ul>
                 @endif
